@@ -17,7 +17,8 @@ class CategorieSerializer(serializers.ModelSerializer):
 
 
 class DepenseSerializer(serializers.ModelSerializer):
-    monnaie = serializers.SlugRelatedField(slug_field="code", queryset=Monnaie.objects.all())
+    monnaie = serializers.SlugRelatedField(slug_field="code", queryset=Monnaie.objects.all(), required=False)
+    categorie = serializers.SlugRelatedField(slug_field="nom", queryset=Categorie.objects.all(), required=False)
 
     class Meta:
         model = Depense
